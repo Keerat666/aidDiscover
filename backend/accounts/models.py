@@ -11,11 +11,18 @@ class UserManager(BaseUserManager):
         user.save()
         return user
 
+    def create_superuser(self, email, password):
+        user = self.create_user(email=email, name=email, phone_number=1234567890)
+        user.set_password(raw_password=password)
+        user.is_staff = True
+        user.is_superuser = True
+        user.save()
+
 
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, null=False, blank=False, unique=True)
     name = models.CharField(max_length=255)
-    phone_number = models.IntegerField(null=False, blank=True, unique=True)
+    phone_number = models.IntegerField(unique=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
