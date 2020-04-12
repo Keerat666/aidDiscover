@@ -40,6 +40,12 @@ class UserPostView(viewsets.ModelViewSet):
         except Exception as e:
             print(e)
 
+
 class PostsView(generics.ListAPIView):
     queryset = Posts.objects.all()
     serializer_class = PostSerializer
+
+
+def search(request, query_string):
+    print(query_string)
+    return None

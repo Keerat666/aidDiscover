@@ -8,5 +8,6 @@ router.register('posts', views.UserPostView)
 
 urlpatterns = [
     path("", include(router.urls)),
-    path("all/", views.PostsView.as_view(), name="all_posts")
+    path("all/", views.PostsView.as_view(), name="all_posts"),
+    path("search/<query_string>/", views.search, name="search_posts")
 ]
