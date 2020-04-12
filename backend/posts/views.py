@@ -45,8 +45,20 @@ class UserPostView(viewsets.ModelViewSet):
 
 
 class PostsView(generics.ListAPIView):
-    queryset = Posts.objects.all()
+    # queryset = Posts.objects.all()
     serializer_class = PostSerializer
+
+    def get_queryset(self):
+        queryset = Posts.objects.all()
+        category = self.request.query_params.get('category', None)
+        role = self.request.query_params.get('role', None)
+
+        if category:
+            queryset = queryset.filter(category=category)
+        if role:
+            queryset = queryset.filter(role=role)
+
+        return queryset
 
 
 def search(request, query_string):
@@ -59,6 +71,7 @@ def search(request, query_string):
         for i in res:
             resp_obj.append(i['_source'])
     return JsonResponse(resp_obj, safe=False)
+
 
 def query_elasticsearch(query):
     res = es.search(index="posts", body={"from": 0, "size": 30, "query": {
