@@ -7,6 +7,6 @@ router = DefaultRouter()
 router.register('posts', views.UserPostView)
 
 urlpatterns = [
-    path("myposts/", include(router.urls)),
+    path("", include(router.urls)),
     path("all/", views.PostsView.as_view(), name="all_posts")
 ]
