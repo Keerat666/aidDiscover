@@ -5,6 +5,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from rest_framework import generics
 from elasticsearch import Elasticsearch
+from django.http import JsonResponse
+import json
 
 # Create your views here.
 
@@ -49,8 +51,11 @@ class PostsView(generics.ListAPIView):
 
 def search(request, query_string):
     print(query_string)
+    resp_obj = []
     res = query_elasticsearch(query_string)
-    return res
+    for i in res:
+        resp_obj.append(i['_source'])
+    return JsonResponse(json.dumps(resp_obj))
 
 def query_elasticsearch(query):
     res = es.search(index="posts", body={"from": 0, "size": 30, "query": {
