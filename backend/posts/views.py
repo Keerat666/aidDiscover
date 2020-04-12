@@ -4,6 +4,8 @@ from .models import Posts
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from rest_framework import generics
+from elasticsearch import Elasticsearch
+
 # Create your views here.
 
 
@@ -21,6 +23,19 @@ class UserPostView(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         """Creating a post"""
         serializer.save(user=self.request.user)
+        post_dict = {}
+        post_dict["title"] = self.request.POST["title"]
+        post_dict["body"] = self.request.POST["body"]
+        post_dict["title"] = self.request.POST["address"]
+        post_dict["user"] = self.request.user.name
+        post_dict["tags"] = self.request.POST["tags"]
+
+        self.elasticsearch_index(post_dict)
+
+    @staticmethod
+    def elasticsearch_index(post_dict):
+        es = Elasticsearch(HOST="http://localhost", PORT=9200)
+        es.index(index="posts", doc_type="post", body=post_dict)
 
 
 class PostsView(generics.ListAPIView):
