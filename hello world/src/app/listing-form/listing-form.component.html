@@ -1,5 +1,5 @@
 <div class="container" style="padding: -15px;">
-    <form action="#">
+    
         <!-- Post Your ad start -->
         <fieldset class="border border-gary p-4 mb-5">
             <div class="row">
@@ -8,37 +8,37 @@
                 </div>
                 <div class="col-lg-6">
                     <h6 class="font-weight-bold pt-4 pb-1">Title Of Ad:</h6>
-                    <input type="text" class="border w-100 p-2 bg-white text-capitalize" placeholder="Ad title go There">
+                    <input type="text" class="border w-100 p-2 bg-white text-capitalize" [(ngModel)]="title" placeholder="Ad title go There">
                     <h6 class="font-weight-bold pt-4 pb-1">Ad Type:</h6>
                     <div class="row px-3">
                         <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white">
-                            <input type="radio" name="itemName" value="personal" id="personal">
-                            <label for="personal" class="py-2">Call for help</label>
+                            <input type="radio" [(ngModel)]="role" name="role" value="seeker" id="seeker">
+                            <label for="seeker" class="py-2">Call for help</label>
                         </div>
                         <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white ">
-                            <input type="radio" name="itemName" value="business" id="business">
-                            <label for="business" class="py-2">Provide Help</label>
+                            <input type="radio" [(ngModel)]="role" name="role" value="provider" id="provider">
+                            <label for="provider" class="py-2">Provide Help</label>
                         </div>
                     </div>
                     <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
-                    <textarea name="" id="" class="border p-3 w-100" rows="7" placeholder="Write details about your product"></textarea>
+                    <textarea name="" id=""  [(ngModel)]="body"class="border p-3 w-100" rows="7" placeholder="Write details about your product"></textarea>
                 </div>
                 <div class="col-lg-6">
                     <h6 class="font-weight-bold pt-4 pb-1">Select Ad Category:</h6>
-                    <select name="" id="inputGroupSelect" class="w-100">
-                            <option value="1">Select category</option>
-                            <option value="2">Food Supplies</option>
-                            <option value="3">Shelter</option>
-                            <option value="4">Healthcare</option>
+                    <select name=""  [(ngModel)]="category" id="categorySelect" class="w-100">
+                            <option value="0">Select category</option>
+                            <option value="food">Food Supplies</option>
+                            <option value="shelter">Shelter</option>
+                            <option value="healthcare">Healthcare</option>
                         </select>
                     <div class="price">
                         <h6 class="font-weight-bold pt-4 pb-1">Address:</h6>
                         <div class="row px-3">
                             <div class="col-lg-7 mr-lg-7 rounded bg-white my-2 ">
-                                <input type="text" name="address" class="border-0 py-2 w-100 price" placeholder="Enter Address Here" id="address">
+                                <input type="text" [(ngModel)]="address" name="address" class="border-0 py-2 w-100 price" placeholder="Enter Address Here" id="address">
                             </div>
                             <div class="col-lg-4 offset-lg-1 mrx-4 rounded bg-white my-2 ">
-                                <input type="number" name="pinocde" class="border-0 py-2 w-100 price" placeholder="Enter Pincode" id="pincode">
+                                <input type="number" [(ngModel)]="pincode" name="pinocde" class="border-0 py-2 w-100 price" placeholder="Enter Pincode" id="pincode">
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                                 <span class="d-block">or</span>
                                 <span class="d-block btn bg-primary text-white my-3 select-files">Select files</span>
                                 <span class="d-block">Maximum upload file size: 500 KB</span>
-                                <input type="file" class="form-control-file d-none" id="file-upload" name="file"  accept="image/x-png,image/gif,image/jpeg" multiple>
+                                <input type="file" [(ngModel)]="images" class="form-control-file d-none" id="file-upload" name="file"  accept="image/x-png,image/gif,image/jpeg" multiple>
                             </label>
                     </div>
 
@@ -60,7 +60,7 @@
 
                 <div class="col-lg-6">
                     <h6 class="font-weight-bold pt-4 pb-1">Tags:</h6>
-                    <input type="text" placeholder="5 Applicable tags separated by comma" class="border w-100 p-2">
+                    <input type="text" [(ngModel)]="tags" placeholder="5 Applicable tags separated by comma" class="border w-100 p-2">
 
                 </div>
 
@@ -76,6 +76,6 @@
                 <span> <a class="text-success" href="terms-condition.html">Terms & Condition</a></span>
             </label>
         </div>
-        <button type="submit" class="btn btn-primary d-block mt-2">Post Your Ad</button>
-    </form>
+        <button (click)="create_post()" class="btn btn-primary d-block mt-2">Post Your Ad</button>
+ 
 </div>
