@@ -24,6 +24,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, null=False, blank=False, unique=True)
     name = models.CharField(max_length=255)
     phone_number = models.IntegerField()
+    image = models.URLField(default="https://image.flaticon.com/icons/svg/476/476863.svg")
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
