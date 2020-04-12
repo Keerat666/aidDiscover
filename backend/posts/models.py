@@ -12,3 +12,6 @@ class Posts(models.Model):
     last_modified = models.DateTimeField(auto_now=True)
     tags = models.CharField(max_length=255)
     location_coordinates = models.TextField()
+    category = models.CharField(max_length=255)
+    role = models.CharField(max_length=255)
+    image = models.URLField(default="https://drive.google.com/file/d/1n14CD8d_zhSZosV0mUcNqvJb6SZlldp6/view?usp=sharing")

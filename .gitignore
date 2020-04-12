@@ -2,3 +2,5 @@ aidDiscover1/node_modules
 __pycache__
 migrations
 .idea
+*.sqlite3
+venv
