@@ -10,6 +10,6 @@ export class RegisterServiceService {
 
   register_user(email,name,phone,pass)
   {
-    return this.http.post('https://6345acbb.ngrok.io/api/user/create/',{"email":email,"name":name,"phone_number":phone,"password":pass});
+    return this.http.post('https://6345acbb.ngrok.io/api/posts/posts/',{"email":email,"name":name,"phone_number":phone,"password":pass});
   }
 }
