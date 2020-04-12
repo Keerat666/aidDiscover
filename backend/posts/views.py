@@ -8,6 +8,8 @@ from elasticsearch import Elasticsearch
 
 # Create your views here.
 
+es = Elasticsearch(HOST="http://localhost", PORT=9200)
+
 
 class UserPostView(viewsets.ModelViewSet):
     """Viewset for managing Post"""
@@ -26,7 +28,7 @@ class UserPostView(viewsets.ModelViewSet):
         post_dict = {}
         post_dict["title"] = self.request.POST["title"]
         post_dict["body"] = self.request.POST["body"]
-        post_dict["title"] = self.request.POST["address"]
+        post_dict["address"] = self.request.POST["address"]
         post_dict["user"] = self.request.user.name
         post_dict["tags"] = self.request.POST["tags"]
 
@@ -35,7 +37,6 @@ class UserPostView(viewsets.ModelViewSet):
     @staticmethod
     def elasticsearch_index(post_dict):
         try:
-            es = Elasticsearch(HOST="http://localhost", PORT=9200)
             es.index(index="posts", doc_type="post", body=post_dict)
         except Exception as e:
             print(e)
@@ -48,4 +49,11 @@ class PostsView(generics.ListAPIView):
 
 def search(request, query_string):
     print(query_string)
-    return None
+    res = query_elasticsearch(query_string)
+    return res
+
+def query_elasticsearch(query):
+    res = es.search(index="posts", body={"from": 0, "size": 30, "query": {
+        "multi_match": {"query": query, "fields": ["title^5", "body^2", "address^5", "user^3", "tags^5"]}}})
+    # pp.pprint(res['hits']['hits'])
+    return res['hits']['hits']
