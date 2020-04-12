@@ -9,8 +9,8 @@ export class LoginServiceService {
   constructor(    private http: HttpClient) { }
 
 
-  login_check()
+  login_check(email,password)
   {
-    return this.http.get('https://jsonplaceholder.typicode.com/albums');
+    return this.http.post('https://6345acbb.ngrok.io/api/user/token/',{"email":email,"password":password});
   }
 }
