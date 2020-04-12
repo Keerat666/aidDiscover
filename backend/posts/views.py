@@ -53,9 +53,12 @@ def search(request, query_string):
     print(query_string)
     resp_obj = []
     res = query_elasticsearch(query_string)
-    for i in res:
-        resp_obj.append(i['_source'])
-    return JsonResponse(json.dumps(resp_obj))
+    if len(res) == 0:
+        resp_obj = []
+    else:
+        for i in res:
+            resp_obj.append(i['_source'])
+    return JsonResponse(resp_obj, safe=False)
 
 def query_elasticsearch(query):
     res = es.search(index="posts", body={"from": 0, "size": 30, "query": {

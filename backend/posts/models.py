@@ -14,4 +14,4 @@ class Posts(models.Model):
     location_coordinates = models.TextField()
     category = models.CharField(max_length=255)
     role = models.CharField(max_length=255)
-    image = models.URLField(default="https://drive.google.com/file/d/1n14CD8d_zhSZosV0mUcNqvJb6SZlldp6/view?usp=sharing")
+    image = models.URLField(default="https://miro.medium.com/max/1091/1*1k8BXesUwmCYXv0tt5KcuQ.jpeg")
