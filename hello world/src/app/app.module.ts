@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
@@ -11,7 +12,6 @@ import { RegisterComponent } from './register/register.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { HttpClientModule } from '@angular/common/http';
-
 const appRoutes: Routes = [
   { path: 'create_post', component: ListingFormComponent },
   { path: 'home', component: HomeComponent },
@@ -36,11 +36,10 @@ const appRoutes: Routes = [
     MyProfileComponent
   ],
   imports: [
-    RouterModule.forRoot(
-      appRoutes // <-- debugging purposes only
-    ),
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
