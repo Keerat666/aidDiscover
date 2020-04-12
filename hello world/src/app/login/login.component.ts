@@ -29,9 +29,9 @@ export class LoginComponent implements OnInit {
       console.log(data["message"])
       if(data["token"])
       {
-        let key = 'Item 1';
-        localStorage.setItem(key, ''+data["token"]);
-        let myItem = localStorage.getItem(key);
+          let key = 'Item 1';
+          localStorage.setItem(key, ''+data["token"]);
+          let myItem = localStorage.getItem(key);
         console.log("Retrieved from browser cache "+myItem)
         this.router.navigate(['/dashboard']);
       }
