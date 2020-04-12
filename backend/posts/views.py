@@ -34,9 +34,11 @@ class UserPostView(viewsets.ModelViewSet):
 
     @staticmethod
     def elasticsearch_index(post_dict):
-        es = Elasticsearch(HOST="http://localhost", PORT=9200)
-        es.index(index="posts", doc_type="post", body=post_dict)
-
+        try:
+            es = Elasticsearch(HOST="http://localhost", PORT=9200)
+            es.index(index="posts", doc_type="post", body=post_dict)
+        except Exception as e:
+            print(e)
 
 class PostsView(generics.ListAPIView):
     queryset = Posts.objects.all()
