@@ -69,6 +69,7 @@ def search(request, query_string):
         resp_obj = []
     else:
         for i in res:
+            i['_source']['image'] = "https://miro.medium.com/max/1091/1*1k8BXesUwmCYXv0tt5KcuQ.jpeg"
             resp_obj.append(i['_source'])
     return JsonResponse(resp_obj, safe=False)
 
