@@ -2576,15 +2576,15 @@ form textarea {
 .footer .block h4 {
   color: #fff;
   font-size: 16px;
-  margin-bottom: 25px;
+  margin-bottom: 5px;
 }
 
 .footer .block.about img {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .footer .block.about p {
-  line-height: 26px;
+  line-height: 16px;
 }
 
 .footer .block ul li {
@@ -2617,7 +2617,7 @@ form textarea {
 }
 
 .footer .block-2 {
-  padding: 18px 30px;
+  padding: 10px 15px;
   background: #46484A;
   border-radius: 2px;
 }
@@ -2643,7 +2643,7 @@ form textarea {
 .footer-bottom {
   position: relative;
   background: #363839;
-  padding: 25px 0;
+  padding: 5px 0;
 }
 
 @media (max-width: 480px) {
