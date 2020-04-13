@@ -1,0 +1,63 @@
+<section class="blog single-blog section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1 col-lg-9 offset-lg-0">
+                <article class="single-post">
+
+                    <div class="row">
+                        <div class="col-md-7 offset-md-2">
+                            <img [src]="x.image" alt="article-01">
+
+                        </div>
+                    </div>
+                    <h3>{{x.title}}</h3>
+                    <br>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">Category : {{x.category}}</li>
+                    </ul>
+                    <p>{{x.body}}</p>
+
+                    <p>Address : {{x.address}}</p>
+                </article>
+                <div class="block comment">
+                    <h4>Leave A Comment</h4>
+                    <form action="#">
+                        <!-- Message -->
+                        <div class="form-group mb-30">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" rows="8"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <!-- Name -->
+                                <div class="form-group mb-30">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <!-- Email -->
+                                <div class="form-group mb-30">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-transparent">Leave Comment</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-10 offset-md-1 col-lg-3 offset-lg-0">
+                <div class="sidebar">
+                    <!-- Search Widget -->
+                    <div class="widget search p-0">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="expire" placeholder="Search...">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

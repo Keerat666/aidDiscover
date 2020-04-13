@@ -1,0 +1,37 @@
+<section class="user-profile section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1 col-lg-3 offset-lg-0">
+                <div class="sidebar">
+                    <!-- User Widget -->
+                    <div class="widget user">
+                        <!-- User Image -->
+                        <div class="image d-flex justify-content-center">
+                            <img src="https://i.ya-webdesign.com/images/user-avatar-png-7.png" alt="" class="">
+                        </div>
+                        <!-- User Name -->
+                        <h5 class="text-center">{{response.name}}</h5>
+                    </div>
+                    <!-- Dashboard Links -->
+                    <div class="widget dashboard-links">
+                        <ul>
+                            <li (click)="logout()"><a class="my-1 d-inline-block" href="">Delete Account</a></li>
+                            <li (click)="logout()"><a class="my-1 d-inline-block" href="">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 offset-md-1 col-lg-9 offset-lg-0">
+                <!-- Edit Profile Welcome Text -->
+                <div class="widget welcome-message">
+                    <h2>Profile Details</h2>
+                    <p>Name : {{response.name}}</p>
+                    <p>Email : {{response.email}}</p>
+                    <p>Phone : {{response.phone_number}}</p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
