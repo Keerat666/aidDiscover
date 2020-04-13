@@ -1,12 +1,20 @@
 # aidDiscover
-COVID 19 Hackathon collab repo
+**COVID 19 Hackathon** collab repo
+
+### aidDiscover
+
+A common market place for covid-19 resources from healthcare to food to shelter!
+
  
- ##Instructions to Install and run
+ ## Instructions to Install and run
+ 
 #### Install elasticsearch:
-    https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html
-####For Frontend:
+    https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html  
+    
+#### For Frontend:
     npm i ng serve
-####For Backend:
+    
+#### For Backend:
      git clone <repo_url>
      cd ./backend
      pip install -r requirement.txt
@@ -14,5 +22,5 @@ COVID 19 Hackathon collab repo
      python manage.py migrate
      python manage.py runserver
      
-####NOTE: Run elasticsearch in the background before running the backend server
+#### NOTE: Run elasticsearch in the background before running the backend server
      
