@@ -16,7 +16,7 @@ export class UserDashboardService {
       'Content-Type': 'application/json',
       'Authorization': "Token " + token});
     let options = { headers: headers };
-    return this.http.get('https://6345acbb.ngrok.io/api/posts/posts/',options);
+    return this.http.get('https://262da9cb.ngrok.io/api/posts/posts/',options);
   }
 }
 

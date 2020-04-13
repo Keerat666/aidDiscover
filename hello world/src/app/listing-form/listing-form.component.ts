@@ -27,6 +27,7 @@ export class ListingFormComponent implements OnInit {
   {
     this.createPost.create_post(this.title,this.role,this.body,this.category,this.address,this.pincode,this.images,this.tags).subscribe(data=>
       {
+        alert("Post Created")
         console.log(data)
         this.response=data
         this.router.navigate(['/dashboard']);

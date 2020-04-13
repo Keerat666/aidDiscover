@@ -11,6 +11,6 @@ export class LoginServiceService {
 
   login_check(email,password)
   {
-    return this.http.post('https://6345acbb.ngrok.io/api/user/token/',{"email":email,"password":password});
+    return this.http.post('https://262da9cb.ngrok.io/api/user/token/',{"email":email,"password":password});
   }
 }
