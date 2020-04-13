@@ -9,10 +9,14 @@ A common market place for covid-19 resources from healthcare to food to shelter!
  ## Instructions to Install and run
  
 #### Install elasticsearch:
+
     https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html  
     
 #### For Frontend:
-    npm i ng serve
+  ```
+    npm i 
+    ng serve
+  ```
     
 #### For Backend:
      git clone <repo_url>
